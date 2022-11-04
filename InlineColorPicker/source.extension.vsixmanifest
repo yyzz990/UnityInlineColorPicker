@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="InlineColorPicker.Microsoft.5b11f3ae-dd7e-422e-84bc-5cec46f80687" Version="2.3" Language="en-US" Publisher="Nokola" />
-        <DisplayName>Inline Color Picker</DisplayName>
-        <Description xml:space="preserve">Color picker extension for Visual Studio.</Description>
+        <Identity Id="UnityInlineColorPicker.Microsoft.5b11f3ae-dd7e-422e-84bc-5cec46f80687" Version="2.3" Language="en-US" Publisher="huang yunfeng" />
+        <DisplayName>Unity Inline Color Picker</DisplayName>
+        <Description xml:space="preserve">Color picker extension for Unity Project</Description>
         <License>License.txt</License>
-        <Tags>color picker, xaml, css, html, color</Tags>
+        <Tags>unity code inline color</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Version="[11.0,18.0)" Id="Microsoft.VisualStudio.Community" />

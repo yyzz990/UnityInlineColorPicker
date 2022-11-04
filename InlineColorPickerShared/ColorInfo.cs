@@ -9,7 +9,7 @@ namespace InlineColorPicker
 {
     public class ColorInfo
     {
-        public Color? Color;
+        public Color32? Color;
         public bool WasSpecifiedWithAlpha;
 
         public static ColorInfo White = new ColorInfo() { Color = Colors.White, WasSpecifiedWithAlpha = true };

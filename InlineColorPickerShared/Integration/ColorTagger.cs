@@ -6,7 +6,6 @@ using Microsoft.VisualStudio.Text.Tagging;
 using Microsoft.VisualStudio.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Media;
-using EasyPainter.Imaging.Silverlight;
 
 namespace InlineColorPicker
 {
@@ -30,37 +29,37 @@ namespace InlineColorPicker
             foreach (SnapshotSpan span in spans)
             {
                 string text = span.GetText();
-                foreach (Match match in ColorSpace.MatchNamedColor(text, shouldAllowFreeFloatingColorNames))
-                {
-                    object color;
-                    try
-                    {
-                        color = ColorConverter.ConvertFromString(ColorSpace.HexFromColorUpperCase[match.ToString().ToUpperInvariant().Substring(1)]);
-                    }
-                    catch (Exception)
-                    {
-                        color = null;
-                    }
-                    int matchStart = span.Start + match.Index + 1;
-                    int matchLength = match.Length - 1;
+                //foreach (Match match in ColorSpace.MatchNamedColor(text, shouldAllowFreeFloatingColorNames))
+                //{
+                //    object color;
+                //    try
+                //    {
+                //        color = ColorConverter.ConvertFromString(ColorSpace.HexFromColorUpperCase[match.ToString().ToUpperInvariant().Substring(1)]);
+                //    }
+                //    catch (Exception)
+                //    {
+                //        color = null;
+                //    }
+                //    int matchStart = span.Start + match.Index + 1;
+                //    int matchLength = match.Length - 1;
 
-                    ITrackingSpan trackingSpan = span.Snapshot.CreateTrackingSpan(matchStart, matchLength, SpanTrackingMode.EdgeInclusive, TrackingFidelityMode.Forward);
+                //    ITrackingSpan trackingSpan = span.Snapshot.CreateTrackingSpan(matchStart, matchLength, SpanTrackingMode.EdgeInclusive, TrackingFidelityMode.Forward);
 
-                    ColorTag tag;
-                    ColorInfo colorInfo = new ColorInfo() { WasSpecifiedWithAlpha = false };
-                    if (color == null)
-                    {
-                        colorInfo.Color = null;
-                    }
-                    else
-                    {
-                        colorInfo.Color = (Color)color;
-                    }
+                //    ColorTag tag;
+                //    ColorInfo colorInfo = new ColorInfo() { WasSpecifiedWithAlpha = false };
+                //    if (color == null)
+                //    {
+                //        colorInfo.Color = null;
+                //    }
+                //    else
+                //    {
+                //        colorInfo.Color = (Color)color;
+                //    }
 
-                    tag = new ColorTag(colorInfo, trackingSpan);
+                //    tag = new ColorTag(colorInfo, trackingSpan);
 
-                    yield return new TagSpan<ColorTag>(new SnapshotSpan(span.Snapshot, matchStart, matchLength), tag);
-                }
+                //    yield return new TagSpan<ColorTag>(new SnapshotSpan(span.Snapshot, matchStart, matchLength), tag);
+                //}
 
                 foreach (Match match in _regex.Matches(text))
                 {
@@ -68,7 +67,7 @@ namespace InlineColorPicker
                     object color;
                     try
                     {
-                        color = ColorConverter.ConvertFromString(match.ToString());
+                        color = Color32.GetColor32(match.ToString());
                     }
                     catch (Exception)
                     {
@@ -87,7 +86,7 @@ namespace InlineColorPicker
                     }
                     else
                     {
-                        colorInfo.Color = (Color)color;
+                        colorInfo.Color = (Color32)color;
                     }
 
                     tag = new ColorTag(colorInfo, trackingSpan);
