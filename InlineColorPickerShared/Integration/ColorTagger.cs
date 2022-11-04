@@ -68,7 +68,8 @@ namespace InlineColorPicker
                     object color;
                     try
                     {
-                        color = ColorConverter.ConvertFromString(match.ToString());
+                        //color = ColorConverter.ConvertFromString(match.ToString());
+                        color = Color32.GetColor32(match.ToString());
                     }
                     catch (Exception)
                     {
@@ -87,7 +88,7 @@ namespace InlineColorPicker
                     }
                     else
                     {
-                        colorInfo.Color = (Color)color;
+                        colorInfo.Color = (Color32)color;
                     }
 
                     tag = new ColorTag(colorInfo, trackingSpan);

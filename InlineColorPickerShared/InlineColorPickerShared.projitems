@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AlphaSelectControl.xaml.cs">
       <DependentUpon>AlphaSelectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Color32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColorAdorner.xaml.cs">
       <DependentUpon>ColorAdorner.xaml</DependentUpon>
     </Compile>

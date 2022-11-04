@@ -289,7 +289,7 @@ namespace EasyPainter.Imaging.Silverlight
             float yComponent = 1 - (float)(yPos / rectSample.ActualHeight);
             float xComponent = (float)(xPos / rectSample.ActualWidth);
 
-            byte a = m_selectedColor.Color.Value.A;
+            byte a = ((Color)m_selectedColor.Color.Value).A;
             Color c = ColorSpace.ConvertHsvToRgb((float)m_selectedHue, xComponent, yComponent);
             c.A = a;
             Color maxLum = ColorSpace.ConvertHsvToRgb((float)m_selectedHue, xComponent, 1);
